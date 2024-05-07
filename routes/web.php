@@ -2,6 +2,10 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Models\Produk;
+use App\Models\Pengguna;
+use App\Models\Telepon;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/params/{nama}/{jk}/{alamat}/{pendidikan}/{pekerjaan}', function (Request $request, $nama,$jk,$alamat,$pendidikan,$pekerjaan) {
+Route::get('/params/{nama}/{jk}/{alamat}/{pendidikan}/{pekerjaan}', function (Request $request, $nama, $jk, $alamat, $pendidikan, $pekerjaan) {
     $nama = $nama;
     $Jk = $jk;
     $alamat = $alamat;
@@ -39,4 +43,21 @@ Route::get('/home', function () {
 });
 Route::get('/contact', function () {
     return view('contact');
+});
+Route::get('/data_post', function () {
+    $post = Post::find(1);
+    return $post;
+    // return view('tampil_post', compact('post'));
+});
+Route::get('/data_produk', function () {
+    $produk = Produk::all();
+    return view('tampil_produk', compact('produk'));
+});
+Route::get('/data_pengguna', function () {
+    $pengguna = Pengguna::all();
+    return view('tampil_pengguna',compact('pengguna'));
+});
+Route::get('/data_telepon', function () {
+    $telepon = Telepon::all();
+    return view('tampil_telepon',compact('telepon'));
 });
