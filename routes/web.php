@@ -1,11 +1,15 @@
 <?php
 
-
+use App\Models\barang;
+use App\Models\detail_penjualan;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Produk;
 use App\Models\Pengguna;
 use App\Models\Telepon;
+use App\Models\Produk2;
+use App\Models\Merk;
+use App\Models\penjualan;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +59,29 @@ Route::get('/data_produk', function () {
 });
 Route::get('/data_pengguna', function () {
     $pengguna = Pengguna::all();
-    return view('tampil_pengguna',compact('pengguna'));
+    return view('tampil_pengguna', compact('pengguna'));
 });
 Route::get('/data_telepon', function () {
     $telepon = Telepon::all();
-    return view('tampil_telepon',compact('telepon'));
+    return view('tampil_telepon', compact('telepon'));
+});
+Route::get('/data_produk2', function () {
+    $produk2 = Produk2::all();
+    return view('tampil_produk2', compact('produk2'));
+});
+Route::get('/data_merk', function () {
+    $merk = merk::all();
+    return view('tampil_merk', compact('merk'));
+});
+Route::get('/data_barang', function () {
+    $barang = barang::all();
+    return view('tampil_barang', compact('barang'));
+});
+Route::get('/data_penjualan', function () {
+    $penjualan = penjualan::all();
+    return view('tampil_penjualan', compact('penjualan'));
+});
+Route::get('/data_detail_penjualan', function () {
+    $detail_penjualan = detail_penjualan::all();
+    return view('tampil_detail_penjualan', compact('detail_penjualan'));
 });
